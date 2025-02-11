@@ -30,6 +30,23 @@ NaN은 숫자이다.
 
 논리식을 사용할 때 그리고는 && 또는 ||로 표현한다.
 
+
+3.빈 값 사용하기
+1)undefined
+undefined는 보통 반환할 결과가 없을 때 나오며, 자료형은 undefined이다.
+!!undefined처럼 형변환을 하면 false가 출력 된다.
+단, undefined와 false는 같지 않다.
+
+2)null
+null도 undefined처럼 값이자 자료형이지만, 자료형은 Object이다.
+!!null처럼 형변환을 하면 false가 나오지만, false와 같지 않다.
+값이 null인지 확인하기 위해서는 === null을 사용해야 한다.
+
+undefined는 기본값이라는 의미라도 있지만, Null은 아무 의미가 없다.
+
+
+
+
 *
 논리 연산자 사용 시 유의할 점
 5&&4 ->4
