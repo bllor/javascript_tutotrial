@@ -31,4 +31,4 @@ let arr = ["가", "나", "다", "라", "마"];
 arr.splice(0, 2, "a", "b");
 console.log(arr);
 
-// tes
+// test
