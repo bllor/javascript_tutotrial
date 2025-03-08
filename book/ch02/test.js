@@ -32,3 +32,12 @@ arr.splice(0, 2, "a", "b");
 console.log(arr);
 
 // test
+
+const b = {
+  name: "dongil",
+  sayName() {
+    console.log(this.name);
+  },
+};
+
+b.sayName();

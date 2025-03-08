@@ -1,0 +1,43 @@
+2.7.클래스
+객체를 생성하기 위한 탬플릿
+
+*
+new를 붙혀 호출하는 함수를 생성자함수라고 한다.
+new를 붙혀 호출하는 이유는 new를 붙히지 않을 경우 전역변수의 값을 수정하기 때문
+prototype: 생성자함수로 생성한 객체가 공유하는 속성
+prototype안에 메서드를 추가해야 메서드를 재사용할 수 있습니다.
+
+1.this이해하기
+this는 기본적으로 window객체를 가리킨다.
+[1]this가 윈도우 객채가 아닐 경우
+1)객체 메서드로 this를 사용할 경우
+const b = {
+    name :'dongil',
+    sayName(){
+        console.log(`my Name is ${this.name}`)
+    }
+}
+2)bind()메서드를 사용하는 경우
+bind메서드는 자바스크립트에 내장된 메서드로 this를 수정하는 역할을 합니다.
+하지만 화살표 함수는 bind()를 해도 this를 변경할 수 없습니다.
+
+const obj = {name:'dongil'}
+function a(){
+    console.log(this)
+}
+a.bind(obj)() --> {name:'dongol'}출력
+
+3)생성자 함수를 호출할 때 new를 붙히면 this는 생성자함수가 새로 생성하는 객체가 된다.
+
+2.클래스로 객체를 생성하는 방법
+
+class Monster{
+    constructor(name,hp,att){
+        this.name = name;
+        this.hp = hp;
+        this.att = att;
+    }
+    attack(monster){
+        monster.hp -=this.att;
+    }
+}
