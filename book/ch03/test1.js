@@ -15,3 +15,7 @@ const func = () => {
   console.log(a1);
 };
 func();
+
+const arr = [1, 2, 3, 4, 5];
+
+console.log(arr.filter((v) => v % 2 !== 0));
