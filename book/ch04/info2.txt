@@ -10,4 +10,38 @@ console.log($input);
 출력 시 인풋태그가 출력이 된다.
 $input는 변수명으로 태그를 저장하는 변수라는 것을 알아보게 하기 위해서 사용한다.
 nodeList를 저장하는 변수명을 $$로 시작하도록 한다.
-nodeList는 특수한 객체로 querySelectorAll()로 모든 선택자를 선택할 때 사용한다.
+nodeList는 특수한 객체로 querySelectorAll('선택자')로 모든 선택자를 선택할 때 사용한다.
+
+2.태그 안의 태그 선택하기
+
+<div>
+<span>
+선택1
+</span>
+</div>
+
+선택1을 선택하려면
+document.querySelector('div span')으로 선택할 수 있다.
+
+3.태그 값에 접근하기
+
+[1]텍스트와 태그 가져오기
+태그.textContent <--태그 내부의 문자열을 가져옴
+태그.innerHTML <-- 태그 내부의 html태그를 포함한 문자열을 가져옴
+
+<span id='order'>1번 참가자</span>
+const $order = document.querySelector('#order');
+$order.textContent -->1번 참가자
+$order.innerHTML --> <span id='order'>1번 참가자</span> 출력
+
+[2]텍스트와 태그 변경하기
+태그.textContent = 값 <-- 태그 내부의 문자열을 해당 값으로 변경함
+태그.innerHTML = 값 <-- 태그 내부의 태그를 해당 값으로 설정함
+입력태그(input,select,textarea)의 값을 선택할 경우 입력태그.value로 선택하여야 한다.
+
+<div>
+<input />
+</div>
+const $selectedValue = document.querySelector('input');
+console.log($selectedValue.value)->이렇게 해야 input의 값을 받아올 수 있다.
+
