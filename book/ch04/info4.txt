@@ -1,0 +1,23 @@
+html의 class는 자바스크립트의 class와 헷갈리므로 className을 사용한다.
+자바스크립트에서 -이 사용되지 않으므로 카멜케이스로 명명하는 것이 좋다.
+
+태그를 변경하는 방법
+tag.className = '클래스1 클래스2';
+tag.className = '클래스3 클래스4';
+tag.className는 '클래스3 클래스4'로 변경된다.
+
+만약 기존의 클래스에 새로운 클래스를 추가하거나 삭제하려면
+태그.classList.add(~~)
+태그.classList.replace('기존 클래스','변경할 클래스')
+태그.classList.remove(~~)
+를 통해 작업을 할 수 있다.
+
+2.부모와 자식 태그 찾기
+document.querySelector(태그).parentNode <--부모 태그 찾기
+document.querySelector(태그).children <--자식 태그 찾기 
+자식태그는 여러 개일 수 있으므로 children 속성의 값은 배열 모양의 객체가 된다.
+querySelector말고 querySelectorAll도 사용할 수 있는데,
+querySelectorAll을 사용할 경우 HTMLCollection 대신 NodeList라는 유사 배열 객체가 반환된다.
+
+3.새로운 태그 추가하기
+document.createElement()와 document.createTextNode()는 각각 태그와 텍스트를 만드는 메서드이다.
