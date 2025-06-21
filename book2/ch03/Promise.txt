@@ -1,0 +1,58 @@
+Promise와 async/await는 비동기 부분을 작성하는데 불편함을 개선하기 위해 생긴 문법이다
+
+1.Promise
+프로미스는 Promise라는 클래스를 사용하는 문법입니다
+프로미스 객체를 생성하여 인수로 콜백함수를 넣는데, 콜백함수의 매개변수로 resolve()와 reject()를 사용합니다.
+resolve()를 호출하면 프로미스가 성공한 것이고, reject()를 호출하면 프로미스가 실패한 것입니다.
+const pro1 = new Promise((resolve,reject)=>{
+    resolve();
+    reject();
+})
+then의 콜백함수는 resolve의 함수를 호출할 때 실행되고, catch는 reject()함수를 호출할 때 실행됩니다.
+ex)
+const setTimeoutPromise = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve()
+    },0)
+})
+setTimeoutPromise.then(()=>{
+    console.log('0초 뒤 실행')
+})//콜백으로 쓰이는 이유는 setTimeoutPromise이 끝난뒤 실행시켜달라는 뜻이기 때문
+
+
+2.async와 await
+const setTimeoutPromise = (ms)=>new Promise((resolve,reject)=>{
+    setTimeout(resolve,ms);
+})
+setTimeoutPromise(1000).then(()=>{
+    console.log('1초 뒤에 실행됩니다.')
+})
+console.log('내가먼저')
+--> 실행시 내가먼저// 1초 뒤 실행됩니다 가 출력이 되는데 이것을 개선하려면 async/await를 사용해야 한다.
+*await사용 시
+const setTimeoutPromise = (ms)=>new Promise((resolve,reject)=>{
+    setTimeout(resolve,ms);
+})
+await setTimeoutPromise(1000)
+console.log('1초뒤 실행')
+console.log('내가먼저')
+--> 1초뒤 실행, 내가먼저 순으로 출력이 된다.
+await는 프로미스가 resolve()될 때까지 기다리라는 뜻.
+
+const setTimeoutPromise = (ms)=>new Promise((resolve,reject)=>{
+    setTimeout(resolve,ms);
+})
+async main(
+    await setTimeoutPromise(1000)
+    console.log('1초뒤 실행')
+    console.log('내가먼저')
+)
+처럼 수정할 수도 있고
+const main =asnyc()=>{
+    await setTimeoutPromise(1000)
+    console.log('1초뒤 실행')
+    console.log('내가먼저')
+}
+main()
+으로 수정할 수 있다.
+
